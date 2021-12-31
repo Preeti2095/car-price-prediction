@@ -35,8 +35,8 @@ g=sns.heatmap(final_dataset[top_corr_mat].corr(), annot=True, cmap='RdYlGn')
 # plt.show()
 
 #independent and dependent features
-X=final_dataset.iloc[:,1:]
-y=final_dataset.iloc[:,0]
+X=final_dataset.iloc[:, 1:]
+y=final_dataset.iloc[:, 0]
 
 from sklearn.ensemble import ExtraTreesRegressor
 model=ExtraTreesRegressor()
@@ -93,11 +93,11 @@ prediction = rf_random.predict(X_test)
 plt.clf()
 # sns.distplot(y_test-prediction)
 
-plt.scatter(y_test,prediction)
+plt.scatter(y_test, prediction)
 # plt.show()
 
 # model pickling
-import  pickle
+import pickle
 
-file=open("random_forest_regressor.pkl","wb")
+file = open("random_forest_regressor.pkl", "wb")
 pickle.dump(rf_random, file)
