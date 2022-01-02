@@ -38,6 +38,15 @@ g=sns.heatmap(final_dataset[top_corr_mat].corr(), annot=True, cmap='RdYlGn')
 X=final_dataset.iloc[:, 1:]
 y=final_dataset.iloc[:, 0]
 
+#Linear Regression Model
+from sklearn.linear_model import LinearRegression
+regression=LinearRegression()
+
+regression.fit(X_train,y_train)
+pred=regression.predict(X_test)
+
+regression.score(X_test,y_test)
+
 from sklearn.ensemble import ExtraTreesRegressor
 model=ExtraTreesRegressor()
 model.fit(X,y)
@@ -95,6 +104,11 @@ plt.clf()
 
 plt.scatter(y_test, prediction)
 # plt.show()
+
+plt.scatter(range(y_test.shape[0]),y_test)
+plt.plot(pred,label='linear regression')
+plt.plot(prediction, label="extra tree rgressor")
+plt.tight_layout()
 
 # model pickling
 import pickle
