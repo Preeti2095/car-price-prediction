@@ -107,7 +107,7 @@ plt.scatter(y_test, prediction)
 
 plt.scatter(range(y_test.shape[0]),y_test)
 plt.plot(pred,label='linear regression')
-plt.plot(prediction, label="extra tree rgressor")
+plt.plot(prediction, label="random forest regressor")
 plt.tight_layout()
 
 # model pickling
